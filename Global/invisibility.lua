@@ -1,4 +1,9 @@
 -- Made by xXHaNdEROXx (modified by s0ulz)
+if _G.mbs==true then
+	warn("Already loaded invisibility")
+	return
+end
+_G.mbs=true
 
 local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
@@ -163,6 +168,7 @@ end
 invisButton.MouseButton1Click:Connect(toggleInvisibility)
 speedButton.MouseButton1Click:Connect(toggleSpeedBoost)
 closeButton.MouseButton1Click:Connect(function()
+	_G.mbs=false
 	mainFrame.Visible = false
 end)
 
