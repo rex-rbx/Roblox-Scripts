@@ -3,7 +3,7 @@ local Frame = Instance.new("Frame")
 local TextLabel = Instance.new("TextLabel")
 local TextLabel2 = Instance.new("TextLabel")
 
-ScreenGui.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+ScreenGui.Parent = game:GetService("CoreGui")
 ScreenGui.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 ScreenGui.ResetOnSpawn = false
 Frame.Parent = ScreenGui
@@ -35,14 +35,12 @@ TextLabel2.Text = "Status: Active"
 TextLabel2.TextColor3 = Color3.fromRGB(0, 255, 255)
 TextLabel2.TextSize = 23
 
-local Players = game:GetService("Players")
 local VirtualUser = game:GetService("VirtualUser")
 
-Players.LocalPlayer.Idled:connect(function()
-	-- upvalues: VirtualUser (ref), TextLabel2 (ref)
+Players.LocalPlayer.Idled:Connect(function()
 	VirtualUser:CaptureController()
-	VirtualUser:ClickButton2(Vector2.new())
+	VirtualUser:ClickButton2(Vector2.zero)
 	TextLabel2.Text = "Status: Saved"
-	wait(5)
+	task.wait(5)
 	TextLabel2.Text = "Status: Active"
 end)
