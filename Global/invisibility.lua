@@ -4,8 +4,6 @@ if _G.mbs==true then
 	return
 end
 _G.mbs=true
-
-local player = game.Players.LocalPlayer
 local character = player.Character or player.CharacterAdded:Wait()
 local defaultSpeed = 16
 local boostedSpeed = 48
@@ -13,7 +11,7 @@ local invisEnabled = false
 local speedBoostEnabled = false
 
 -- UI Setup
-local screenGui = Instance.new("ScreenGui", player:WaitForChild("PlayerGui"))
+local screenGui = Instance.new("ScreenGui", game:GetService("CoreGui"))
 screenGui.Name = "ModernUI"
 screenGui.ResetOnSpawn = false
 
