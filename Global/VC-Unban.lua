@@ -1,2 +1,1 @@
-voiceChatService = game:GetService("VoiceChatService")
-voiceChatService:joinVoice()
+game:GetService("VoiceChatService"):joinVoice()
